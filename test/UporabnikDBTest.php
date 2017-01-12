@@ -15,7 +15,7 @@ class UporabnikDBTest
 
         echo (Uporabnik_B::insert(
             [
-                "ime" => "administrator", "priimek" => "administrator", "email" => "administrator@3xkca.si", "geslo" => "administrator", "telefon" => "", "naslov" => "", "posta" => "", "vloga_id" => 1, "aktiven" => 1, "aktivacija_hash" => "", "certifikat_id" => ""
+                "ime" => "administrator", "priimek" => "administrator", "email" => "administrator@3xkca.si", "geslo" => "admin", "telefon" => "", "naslov" => "", "posta" => "", "vloga_id" => 1, "aktiven" => 1, "aktivacija_hash" => "", "certifikat_id" => ""
             ]
         ));
 

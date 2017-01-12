@@ -1,15 +1,8 @@
 <?php require_once("model/Uporabnik_B.php") ?>
-<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+<nav class="navbar navbar-inverse" role="navigation" style="margin-bottom: 0">
     <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="store">
-            <div id="logo"></div>
-        </a>
+        <br>
+        <a class="navbar-brand" href="#"> <font size="8">3xK</font> </a>
     </div>
     <!-- /.navbar-header -->
 
@@ -38,15 +31,15 @@
     ?>
 
     <section id="login">
-        <p>jeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</p>
+        <!--<p>jeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</p>-->
         <ul class="nav navbar-top-links navbar-right">
             <?php if(isset($_SESSION["idUporabnik"])): ?>
-                <li>Pozdravljeni, <?= Uporabnik_B::get(["id" => $_SESSION["idUporabnik"]])["ime"] ?></li>
+                <li><span style="color: white;">Prijavljen je uporabnik <?= Uporabnik_B::get(["id" => $_SESSION["idUporabnik"]])["ime"] ?></span></li>
             <?php else: ?>
-                <li><a href="<?= BASE_URL."login" ?>">Prijava</a></li>
+                <li><a href="<?= BASE_URL."login" ?>"><span style="color: white;">PRIJAVA</span></a></li>
             <?php endif ?>
-            <li><a href="<?php echo $manageUrl; ?>"><i class="fa fa-user fa-fw"></i></a></li>
-            <li><a href="<?php echo $logoutUrl; ?>"><i class="fa fa-sign-out fa-fw"></i></a></li>
+            <li><a href="<?php echo $manageUrl; ?>"><span style="color: white;">MOJ PROFIL</span></a></li>
+            <li><a href="<?php echo $logoutUrl; ?>"><span style="color: white;">ODJAVA</span></a></li>
         </ul>
     </section>
     <!-- /.navbar-top-links -->
