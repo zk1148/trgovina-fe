@@ -73,7 +73,7 @@ if (isset($_GET["manage"])) {
 
 
                     <?php if ($mode === "seznamStrank") {    // izpisi seznam strank
-                        echo "<table border='4' cellpadding=\"100\" cellspacing=\"100\">";
+                        echo "<table cellpadding='10' border='4'>";
                         echo "<tr><th>ID</th><th>Ime</th><th>Priimek</th><th>Elektronski naslov</th><th>Telefon</th><th>Naslov</th><th>Pošta</th><th>Aktiven</th><th>Upravljaj</th></tr>";
 
                         class TableRows extends RecursiveIteratorIterator
@@ -131,12 +131,12 @@ if (isset($_GET["manage"])) {
 
                             if ($k == "aktiven") {
                                 if ($v === '1') {
-                                    $class = "btn btn-outline btn-danger btn-sm";
+                                    $class = "btn btn-default btn-sm";
                                     $value = "Deaktiviraj";
                                     $aktiven = 0;
 //                                    Uporabnik_B::updateAktivno(["idUporabnik" => $idUporabnika, "aktiven" => 0]);
                                 } else {
-                                    $class = "btn btn-outline btn-success btn-sm";
+                                    $class = "btn btn-default btn-sm";
                                     $value = "Aktiviraj";
                                     $aktiven = 1;
 //                                    Uporabnik_B::updateAktivno(["idUporabnik" => $idUporabnika, "aktiven" => 1]);
@@ -215,10 +215,11 @@ if (isset($_GET["manage"])) {
                             <hr>
 
                             <div class="form-group">
-                                <label>Geslo in potrditev gesla:</label><br>
-                                <input type="password" name="password">
+                                <label>Geslo:</label><br>
 
-                                <input type="password" name="confirm">
+                                <input style="width: 22.5%;" type="password" name="password"><br>
+                                <label>Potrditev gesla:</label><br>
+                                <input style="width: 22.5%;" type="password" name="confirm">
                             </div>
                             <input type="hidden" name="vloga_id" value="3"/>
                             <br><br>

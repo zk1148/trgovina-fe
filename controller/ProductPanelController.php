@@ -56,7 +56,7 @@ class ProductPanelController
         } else {
             echo ViewHelper::render("view/izdelek-form.php", [
                 "form" => $form,
-                "title" => "Dodaj izdelek"
+                "title" => "DODAJ PRODUKT"
             ]);
         }
     }
@@ -98,7 +98,7 @@ class ProductPanelController
                 ViewHelper::redirect(BASE_URL . "productpanel");
             } else {
                 echo ViewHelper::render("view/izdelek-form.php", [
-                    "title" => "Urejanje izdelka",
+                    "title" => "UREJANJE PRODUKTA",
                     "form" => $editForm,
                 ]);
             }
@@ -110,7 +110,7 @@ class ProductPanelController
                 $editForm->addDataSource($dataSource);
 
                 echo ViewHelper::render("view/izdelek-form.php", [
-                    "title" => "Urejanje izdelka",
+                    "title" => "UREJANJE PRODUKTA",
                     "form" => $editForm,
                 ]);
             } else {

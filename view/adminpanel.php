@@ -97,16 +97,17 @@ if ($user["aktiven"] === '1') {
 
 
                         <div class="form-group">
-                            <label>Elektronski naslov</label><br>
+                            <label>Elektronski naslov:</label><br>
                             <input style="width: 46%;"
                                 <?php if ($mode != "create" && isset($user["email"])) echo "value='" . $user["email"] . "'"; ?>
                                 type="email" name="email" required>
                         </div>
                         <hr>
                         <div class="form-group">
-                            <label>Geslo in potrditev gesla</label><br>
-                            <input type="password" name="password">
-                            <input type="password" name="confirm">
+                            <label>Geslo:</label><br>
+                            <input style="width: 46%;" type="password" name="password"><br>
+                            <label>Potrditev gesla:</label><br>
+                            <input style="width: 46%;" type="password" name="confirm">
                         </div>
 
 

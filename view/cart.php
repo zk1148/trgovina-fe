@@ -53,7 +53,7 @@
                 </table>
                 <form action="<?= BASE_URL."cart/oddaj"?>" method="post">
 
-                    <button class="btn-info" type="submit">Oddaj naročilo</button>
+                    <button type="submit">Oddaj naročilo</button>
                 </form>
             </div>
 

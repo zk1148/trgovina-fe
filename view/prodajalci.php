@@ -74,11 +74,11 @@ if ($_SESSION["vloga_id"] != 1) {
 
                         if ($k == "aktiven") {
                             if ($v === '1') {
-                                $class = "btn btn-outline btn-danger btn-sm";
+                                $class = "btn btn-default btn-sm";
                                 $value = "Deaktiviraj";
                                 $aktivno = 0;
                             } else {
-                                $class = "btn btn-outline btn-success btn-sm";
+                                $class = "btn btn-default btn-sm";
                                 $value = "Aktiviraj";
                                 $aktivno = 1;
                             }

@@ -19,7 +19,7 @@
                             <strong><?= $izdelek["ime"] ?><br></strong>
                             <?= "Cena: ".$izdelek["cena"] ?> €
                             <a href="<?= BASE_URL . "editproduct?id=" . $izdelek["idIzdelek"] ?>"
-                               class="pull-right btn">Uredi izdelek</a>
+                               class="pull-right btn"><font color="black">Uredi izdelek</font></a>
                         </div>
                         <div class="panel-body">
                             <?= $izdelek["opis"] ?>
@@ -34,7 +34,7 @@
                                         </span>
                                       </span>
                                     <span>
-                                        <button class="btn btn-info" type="submit">
+                                        <button type="submit">
                                             Dodaj sliko
                                         </button>
                                     </span>
