@@ -34,7 +34,7 @@ if ($_SESSION["vloga_id"] != 1) {
             <div class="panel panel-default">
                 <div class="panel-body">
                     <?php
-                    echo "<table class=\"table table-striped table-bordered table-hover\">";
+                    echo "<table border='4' cellpadding=\"100\" cellspacing=\"100\">";
                     echo "<tr><th>ID</th><th>Ime</th><th>Priimek</th><th>e-mail</th><th>Aktivno</th><th>Upravljaj</th></tr>";
 
                     class TableRows extends RecursiveIteratorIterator

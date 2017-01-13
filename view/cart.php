@@ -19,12 +19,13 @@
 
         <div class="row">
             <div class="col-md-6">
-                <h1>Nakupovalni voziček <i class="fa fa-shopping-cart"></i></h1>
+                <h1>KOŠARICA</h1>
+                <br>
                 <table class="table">
                     <thead>
-                    <th>Ime</th>
+                    <th>Naziv</th>
                     <th>Količina</th>
-                    <th>Cena/kos</th>
+                    <th>Cena enega izdelka</th>
                     <th>Cena</th>
                     </thead>
                     <tbody>
@@ -45,14 +46,14 @@
                             <td><?= $izdelek["cena"] * $izdelek["kolicina"] ?> €</td>
                         </tr>
                     <?php endforeach; ?>
-                    <tr class="info">
-                        <td colspan="3"><strong>Cena skupaj:</strong></td>
+                    <tr>
+                        <td colspan="3"><strong>Skupna cena:</strong></td>
                         <td><?= $skupaj ?> €</td>
                     </tr>
                 </table>
                 <form action="<?= BASE_URL."cart/oddaj"?>" method="post">
 
-                    <button class="btn pull-right btn-success" type="submit">Oddaj naročilo</button>
+                    <button class="btn-info" type="submit">Oddaj naročilo</button>
                 </form>
             </div>
 

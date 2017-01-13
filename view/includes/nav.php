@@ -37,67 +37,51 @@
                 <li><span style="color: white;">Prijavljen je uporabnik <?= Uporabnik_B::get(["id" => $_SESSION["idUporabnik"]])["ime"] ?></span></li>
             <?php else: ?>
                 <li><a href="<?= BASE_URL."login" ?>"><span style="color: white;">PRIJAVA</span></a></li>
-            <?php endif ?>
+            <?php endif ?>+
             <li><a href="<?php echo $manageUrl; ?>"><span style="color: white;">MOJ PROFIL</span></a></li>
             <li><a href="<?php echo $logoutUrl; ?>"><span style="color: white;">ODJAVA</span></a></li>
         </ul>
     </section>
     <!-- /.navbar-top-links -->
 
-    <div class="navbar-default sidebar" role="navigation">
-        <div class="sidebar-nav navbar-collapse">
-            <ul class="nav" id="side-menu">
-                <li>
-                    <a href="<?php echo $manageUrl; ?>"><span><i
-                                class="fa fa-user fa-fw"></i> Upravljaj račun</span></a>
-                </li>
-                <li>
-                    <a href="store"><span><i class="fa fa-laptop fa-fw"></i> Trgovina</span></a>
-                </li>
-                <li>
-                    <a href="<?= BASE_URL . "cart" ?>"><span><i
-                                class="fa fa-shopping-cart fa-fw"></i> Voziček</span></a>
-                </li>
-                <li>
-                    <a href="<?= BASE_URL . "narocila" ?>"><span><i class="fa fa-book fa-fw"></i> Naročila</span></a>
-                </li>
-                <?php if ($vloga == 1) { ?>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-share-alt fa-fw"></i> Upravljaj s prodajalci<span class="fa arrow"></span>
-                        </a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="prodajalci">Pregled</a></li>
-                            <li><a href="adminpanel?id=-1">Dodaj prodajalca</a></li>
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
-                <?php } ?>
-                <?php if ($vloga == 1 || $vloga == 2) { ?>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-users fa-fw"></i> Upravljaj s strankami<span class="fa arrow"></span>
-                        </a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="sellerpanel?manage">Pregled</a></li>
-                            <li><a href="sellerpanel?id=-1">Dodaj stranko</a></li>
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-cubes fa-fw"></i> Upravljaj s produkti<span class="fa arrow"></span>
-                        </a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="<?= BASE_URL . "productpanel" ?>">Pregled</a></li>
-                            <li><a href="<?= BASE_URL . "addproduct" ?>">Dodaj produkt</a></li>
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
-                <?php } ?>
-            </ul>
-        </div>
-        <!-- /.sidebar-collapse -->
-    </div>
+    <br>
+    <ul class="nav navbar-nav">
+
+        <li>
+            <a href="store"><span><i class="fa fa-fw"></i> <font color="white">TRGOVINA</font></span></a>
+        </li>
+        <li>
+            <a href="<?= BASE_URL . "cart" ?>"><span><i
+                            class="fa fa-fw"></i> <font color="white">KOŠARICA</font></span></a>
+        </li>
+        <li>
+            <a href="<?= BASE_URL . "narocila" ?>"><span><i class="fa fa-fw"></i> <font color="white">NAROČILA</font></span></a>
+        </li>
+        <?php if ($vloga == 1) { ?>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><font color="white">UPRAVLJAJ S PRODAJALCI</font><span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="prodajalci">Pregled prodajalcev</a></li>
+                    <li><a href="adminpanel?id=-1">Dodaj prodajalca</a></li>
+                </ul>
+            </li>
+        <?php } ?>
+        <?php if ($vloga == 1 || $vloga == 2) { ?>
+
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><font color="white">UPRAVLJAJ S STRANKAMI</font><span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="sellerpanel?manage">Pregled strank</a></li>
+                    <li><a href="sellerpanel?id=-1">Dodaj stranko</a></li>
+                </ul>
+            </li>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><font color="white">UPRAVLJAJ S PRODUKTI</font><span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="<?= BASE_URL . "productpanel" ?>">Pregled produktov</a></li>
+                    <li><a href="<?= BASE_URL . "addproduct" ?>">Dodaj produkt</a></li>
+                </ul>
+            </li>
+        <?php } ?>
+    </ul>
+
+
     <!-- /.navbar-static-side -->
 </nav>

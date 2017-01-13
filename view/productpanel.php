@@ -9,20 +9,40 @@
 <div id="page-wrapper">
 
     <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">Izdelki</h1>
+        <div class="col-lg-9">
+            <h1 class="page-header">VSI IZDELKI</h1>
             <?php foreach ($izdelki as $izdelek): ?>
-                <div class="col-lg-4 col-md-4 col-sm-4">
+                <div>
 
-                    <div class="panel <?= $izdelek["aktiven"] == 1?"panel-success":"panel-danger" ?>">
+                    <div class="panel <?= $izdelek["aktiven"] == 1?"panel-default":"panel-danger" ?>">
                         <div class="panel-heading">
-                            <?= $izdelek["ime"].": " ?>
-                            <strong><?= $izdelek["cena"] ?> €</strong>
+                            <strong><?= $izdelek["ime"] ?><br></strong>
+                            <?= "Cena: ".$izdelek["cena"] ?> €
                             <a href="<?= BASE_URL . "editproduct?id=" . $izdelek["idIzdelek"] ?>"
-                               class="pull-right btn btn-default btn-sm">Uredi</a>
+                               class="pull-right btn">Uredi izdelek</a>
                         </div>
                         <div class="panel-body">
                             <?= $izdelek["opis"] ?>
+                            <hr>
+
+                            <form action="<?= BASE_URL . "slike" ?>" class="form" method="post"
+                                  enctype="multipart/form-data">
+                                <div class="input-group">
+                                      <span class="input-group-btn">
+                                        <span class="btn">
+                                            <input type="file" name="slika" id="slika">
+                                        </span>
+                                      </span>
+                                    <span>
+                                        <button class="btn btn-info" type="submit">
+                                            Dodaj sliko
+                                        </button>
+                                    </span>
+                                    <input type="hidden" name="do" value="add">
+                                    <input type="hidden" name="id" value="<?= $izdelek["idIzdelek"] ?>">
+                                </div><!-- /input-group -->
+
+                            </form>
                             <hr>
                             <div>
                                 <?php foreach ($izdelek["slike"] as $slika): ?>
@@ -41,26 +61,8 @@
                                     </div>
                                 <?php endforeach; ?>
                             </div>
-                            <hr>
-                            <form action="<?= BASE_URL . "slike" ?>" class="form" method="post"
-                                  enctype="multipart/form-data">
-                                <div class="input-group">
-                                      <span class="input-group-btn">
-                                        <span class="btn btn-default btn-file">
-                                            Izberi sliko <input type="file" name="slika" id="slika">
-                                        </span>
-                                      </span>
-                                    <input type="text" class="form-control">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-success" type="submit">
-                                            Dodaj sliko
-                                        </button>
-                                    </span>
-                                    <input type="hidden" name="do" value="add">
-                                    <input type="hidden" name="id" value="<?= $izdelek["idIzdelek"] ?>">
-                                </div><!-- /input-group -->
 
-                            </form>
+
                         </div>
                     </div>
 

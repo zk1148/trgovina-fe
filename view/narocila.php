@@ -10,11 +10,11 @@
 
     <div class="row">
         <div class="col-lg-8">
-            <h1 class="page-header">Naročila</h1>
+            <h1 class="page-header">PREGLED NAROČIL</h1>
             <table class="table">
                 <thead>
                 <tr>
-                    <th>ID naročila</th>
+                    <th>ID</th>
                     <th>Stranka</th>
                     <th>Skupna cena</th>
                     <th>Datum oddaje</th>

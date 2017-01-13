@@ -55,26 +55,26 @@ if (isset($_GET["manage"])) {
 <div id="page-wrapper">
 
     <div class="row">
-        <div class="col-lg-<?php echo $velikost ?>">
+        <div>
             <h1 class="page-header">
                 <?php
                 if ($mode === "edit") {
-                    echo "Uredi stranko";
+                    echo "UREJANJE STRANKE";
                 } elseif ($mode === "urediAcc") {
-                    echo "Upravljaj račun";
+                    echo "SPREMENI PROFIL";
                 } elseif ($mode === "create") {
-                    echo "Ustvari stranko";
+                    echo "REGISTRACIJA STRANKE";
                 } elseif ($mode === "seznamStrank") {
-                    echo "Upravljaj s strankami";
+                    echo "UPRAVLJANJE S STRANKAMI";
                 }
                 ?>
             </h1>
 
-            <div class="panel panel-default">
-                <div class="panel-body">
+
+
                     <?php if ($mode === "seznamStrank") {    // izpisi seznam strank
-                        echo "<table class=\"table table-striped table-bordered table-hover\">";
-                        echo "<tr><th>ID</th><th>Ime</th><th>Priimek</th><th>email</th><th>Telefon</th><th>Naslov</th><th>Pošta</th><th>Aktiven</th><th>Upravljaj</th></tr>";
+                        echo "<table border='4' cellpadding=\"100\" cellspacing=\"100\">";
+                        echo "<tr><th>ID</th><th>Ime</th><th>Priimek</th><th>Elektronski naslov</th><th>Telefon</th><th>Naslov</th><th>Pošta</th><th>Aktiven</th><th>Upravljaj</th></tr>";
 
                         class TableRows extends RecursiveIteratorIterator
                         {
@@ -166,39 +166,44 @@ if (isset($_GET["manage"])) {
                     if ($mode !== "seznamStrank") {             // urejamo stranko ?>
                         <form action="userpanel" method="post">
                             <?php if ($mode === "urediAcc" || $mode === "edit" || $mode === "create") { ?>
+                            <form class="form-inline">
+                                    <div class="form-group">
+                                        <label>Ime in priimek:</label><br>
+                                        <input
+                                            <?php if ($mode != "create" && isset($result["ime"])) echo "value='" . $result["ime"] . "'"; ?>
+                                            type="text" pattern="[A-zčžšČŽŠ]*" name="ime" required>
 
+
+                                        <input
+                                                <?php if ($mode != "create" && isset($result["priimek"])) echo "value='" . $result["priimek"] . "'"; ?>
+                                                type="text" pattern="[A-zčžšČŽŠ]*" name="priimek" required>
+
+
+                                    </div>
+                            </form>
                                 <div class="form-group">
-                                    <label>Ime</label>
-                                    <input
-                                        class="form-control" <?php if ($mode != "create" && isset($result["ime"])) echo "value='" . $result["ime"] . "'"; ?>
-                                        type="text" pattern="[A-zčžšČŽŠ]*" name="ime" required>
+                                    <label>Elektronski naslov:</label><br>
+                                    <input style="width: 22.5%;"
+                                            <?php if ($mode != "create" && isset($result["email"])) echo "value='" . $result["email"] . "'"; ?>
+                                            type="email" name="email" required>
                                 </div>
-                                <div class="form-group">
-                                    <label>Priimek</label>
-                                    <input
-                                        class="form-control" <?php if ($mode != "create" && isset($result["priimek"])) echo "value='" . $result["priimek"] . "'"; ?>
-                                        type="text" pattern="[A-zčžšČŽŠ]*" name="priimek" required>
-                                </div>
+
 
                                 <?php if ($mode === "edit" || $mode === "create") { ?>
                                     <div class="form-group">
-                                        <label>Telefon</label>
-                                        <input
-                                            class="form-control" <?php if ($mode != "create" && isset($result["telefon"])) echo "value='" . $result["telefon"] . "'"; ?>
+                                        <label>Naslov:</label><br>
+                                        <input style="width: 22.5%;"
+                                            <?php if ($mode != "create" && isset($result["naslov"])) echo "value='" . $result["naslov"] . "'"; ?>
+                                                type="text" name="naslov" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Telefon:</label><br>
+                                        <input style="width: 22.5%;"
+                                            <?php if ($mode != "create" && isset($result["telefon"])) echo "value='" . $result["telefon"] . "'"; ?>
                                             type="text" pattern="\d{3} \d{3} \d{3}" name="telefon" required>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Naslov</label>
-                                        <input
-                                            class="form-control" <?php if ($mode != "create" && isset($result["naslov"])) echo "value='" . $result["naslov"] . "'"; ?>
-                                            type="text" name="naslov" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Pošta</label>
-                                        <input
-                                                class="form-control" <?php if ($mode != "create" && isset($result["posta"])) echo "value='" . $result["posta"] . "'"; ?>
-                                                type="text" name="posta" required>
-                                    </div>
+
+
 
                                     <input type="hidden" name="editing" value="customer"/>
                                     <input type="hidden" name="vloga_id" value="3"/>
@@ -208,55 +213,49 @@ if (isset($_GET["manage"])) {
                             } // konec urejanja ali dodajanja stranke?>
 
                             <hr>
+
                             <div class="form-group">
-                                <label>e-mail</label>
-                                <input
-                                    class="form-control" <?php if ($mode != "create" && isset($result["email"])) echo "value='" . $result["email"] . "'"; ?>
-                                    type="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Novo geslo</label>
-                                <input class="form-control" type="password" name="password">
-                            </div>
-                            <div class="form-group">
-                                <label>Potrdi geslo</label>
-                                <input class="form-control" type="password" name="confirm">
+                                <label>Geslo in potrditev gesla:</label><br>
+                                <input type="password" name="password">
+
+                                <input type="password" name="confirm">
                             </div>
                             <input type="hidden" name="vloga_id" value="3"/>
-
+                            <br><br>
 
                             <?php if ($registracija == 1) {
                                 echo ($_SESSION["mojaVarnost"])
                                 ?>
                                 <hr>
                                 <div class="form-group">
-                                    <label>Varnostno preverjanje </label>
+                                    <label>Prepiši zgornjo kodo </label>
                                     <img src="captcha"/>
-                                    <input class="form-control" type="text" name="captcha"
-                                           placeholder="varnostno preverjanje" required>
+                                    <input type="text" name="captcha"
+                                           required>
                                 </div>
+                                <br>
                             <?php } ?>
 
                             <?php
                             if ($mode === "create") {
                                 echo '  <input type="hidden" name="id" value=-1>
                                         <div class="form-group">
-                                            <input type="submit" value="Ustvari novo stranko" class="btn btn-danger btn-block" name="submit" style="width: 50%; margin-left: auto; margin-right: auto;" onclick="return checkpassword()">
+                                            <input type="submit" value="Potrdi registracijo" name="submit" style="width: 10%; margin-left: auto; margin-right: auto;" onclick="return checkpassword()">
                                         </div>
                                      ';
                             } elseif ($mode === "urediAcc" || $mode === "edit") {
                                 echo '	<input type="hidden" name="id" value=' . $id . '>
 									    <div class="form-group">
-                                            <input type="submit" value="Shrani" class="btn btn-danger btn-block" name="submit" style="width: 50%; margin-left: auto; margin-right: auto;" onclick="return checkpassword()">
+                                            <input type="submit" value="Shrani spremembe" name="submit" style="width: 22.5%; margin-left: auto; margin-right: auto;" onclick="return checkpassword()">
                                         </div>
                                      ';
                             } ?>
                         </form>
                     <?php } ?>
 
-                </div>
+
                 <!-- /.panel-body -->
-            </div>
+
             <!-- /.panel -->
 
         </div>

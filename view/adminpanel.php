@@ -64,28 +64,25 @@ if ($user["aktiven"] === '1') {
             <h1 class="page-header">
                 <?php
                 if ($mode === "manage") {
-                    echo "Upravljaj račun";
+                    echo "SPREMENI PROFIL";
                 } elseif ($mode === "edit") {
-                    echo "Uredi prodajalca";
+                    echo "UREJANJE PRODAJALCA";
                 } elseif ($mode === "create") {
-                    echo "Ustvari prodajalca";
+                    echo "REGISTRACIJA PRODAJALCA";
                 }
                 ?>
             </h1>
 
-            <div class="panel panel-default">
-                <div class="panel-body">
+
+
                     <form action="userpanel" method="post">
                         <div class="form-group">
-                            <label>Ime</label>
-                            <input class="form-control" <?php if ($mode != "create") echo "value=" . $user["ime"]; ?>
+                            <label>Ime in priimek:</label><br>
+                            <input <?php if ($mode != "create") echo "value=" . $user["ime"]; ?>
                                    type="text" pattern="[A-zčžšČŽŠ]*" name="ime" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Priimek</label>
                             <input
-                                class="form-control" <?php if ($mode != "create") echo "value=" . $user["priimek"]; ?>
-                                type="text" pattern="[A-zčžšČŽŠ]*" name="priimek" required>
+                                    <?php if ($mode != "create") echo "value=" . $user["priimek"]; ?>
+                                    type="text" pattern="[A-zčžšČŽŠ]*" name="priimek" required>
                         </div>
 
                         <?php
@@ -98,36 +95,38 @@ if ($user["aktiven"] === '1') {
                             ";
                         ?>
 
-                        <hr>
+
                         <div class="form-group">
-                            <label>e-mail</label>
-                            <input
-                                class="form-control" <?php if ($mode != "create" && isset($user["email"])) echo "value='" . $user["email"] . "'"; ?>
+                            <label>Elektronski naslov</label><br>
+                            <input style="width: 46%;"
+                                <?php if ($mode != "create" && isset($user["email"])) echo "value='" . $user["email"] . "'"; ?>
                                 type="email" name="email" required>
                         </div>
+                        <hr>
                         <div class="form-group">
-                            <label>Novo geslo</label>
-                            <input class="form-control" type="password" name="password">
-                        </div>
-                        <div class="form-group">
-                            <label>Potrdi geslo</label>
-                            <input class="form-control" type="password" name="confirm">
+                            <label>Geslo in potrditev gesla</label><br>
+                            <input type="password" name="password">
+                            <input type="password" name="confirm">
                         </div>
 
+
+
                         <input type="hidden" name="vloga_id" value="2"/>
+                        <br><br>
 
                         <?php
                         if ($mode === "create") {
                             echo '	<input type="hidden" name="id" value=-1>
 				                    <div class="form-group">
-                                        <input type="submit" value="Ustvari novega prodajalca" class="btn btn-danger btn-block" name="submit" style="width: 50%; margin-left: auto; margin-right: auto;" onclick="return checkpassword()">
+                                        
+                                        <input type="submit" value="Potrdi registracijo" name="submit" style="width: 22.5%; margin-left: auto; margin-right: auto;" onclick="return checkpassword()">
                                     </div>
 				                 ';
                         } else {
                             echo '	<input type="hidden" name="id" value=' . $id . '>
                                     <input type="hidden" value="manage" name="mode"/>
                                     <div class="form-group">
-                                        <input type="submit" value="Shrani" class="btn btn-danger btn-block" name="submit" style="width: 50%; margin-left: auto; margin-right: auto;" onclick="return checkpassword()">
+                                        <input type="submit" value="Shrani spremembe" name="submit" style="width: 22.5%; margin-left: auto; margin-right: auto;" onclick="return checkpassword()">
                                     </div>
                                  ';
                         }
@@ -139,9 +138,9 @@ if ($user["aktiven"] === '1') {
                         echo '<a class=\'btn btn-default \' href=\'prodajalci\'>Nazaj</a>';
                     ?>
 
-                </div>
+
                 <!-- /.panel-body -->
-            </div>
+
             <!-- /.panel -->
 
         </div>
