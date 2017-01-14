@@ -15,7 +15,7 @@
 <link href="static/css/jquery.toast.min.css" rel="stylesheet">
 
 <!-- Custom Fonts -->
-<link href="static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<!--<link href="static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">-->
 
 <!-- jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>

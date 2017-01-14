@@ -66,19 +66,22 @@
 
                     </div>
                     <div class="caption-full">
-                        <div class="btn-group pull-right" role="group">
-                            <a class="btn btn-default disabled"><?= $izdelek["cena"] ?> €</a>
-                            <button type="button" class="btn btn-success"
-                                    <?= isset($_SESSION["idUporabnik"])?"":"disabled"?>
-                                    onclick="dodajVKosarico('<?= BASE_URL."cart/ajax" ?>',<?= $izdelek["idIzdelek"]?>)">Dodaj v košarico</button>
-                        </div>
+
                         <h2><?= $izdelek["ime"] ?>
                         </h2>
+                        <h4>Cena: <?= $izdelek["cena"] ?> €
+                        </h4>
                         <p><?= $izdelek["opis"] ?></p>
+                        <div role="group">
+
+                            <button type="button""
+                                <?= isset($_SESSION["idUporabnik"])?"":"disabled"?>
+                                    onclick="dodajVKosarico('<?= BASE_URL."cart/ajax" ?>',<?= $izdelek["idIzdelek"]?>)">Dsodaj v košarico</button>
+                        </div>
 
                     </div>
                     <div class="ratings">
-                        <p class="pull-right"><?= $izdelek["count_ocena"] ?> ocen</p>
+
                         <p>
                             <?php for ($i = 0; $i < round($izdelek["avg_ocena"]); $i++): ?>
                                 <i class="fa fa-star"></i>
@@ -104,8 +107,8 @@
                                     <?php endforeach ?>
                                 </select>
                                 <input type="hidden" name="id" value="<?= $izdelek["idIzdelek"] ?>">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="submit">Oceni</button>
+                            <span>
+                                <button type="submit" style="width: 100%;">Oceni izdelek</button>
                               </span>
                             </div>
                         </form>

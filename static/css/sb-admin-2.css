@@ -6,6 +6,7 @@
 
 body {
     background-color: #f8f8f8;
+    font-family: "Ubuntu Light";
 }
 
 #wrapper {
@@ -253,19 +254,19 @@ table.dataTable thead .sorting_desc_disabled {
 table.dataTable thead .sorting_asc:after {
     content: "\f0de";
     float: right;
-    font-family: fontawesome;
+    font-family: "Times New Roman";
 }
 
 table.dataTable thead .sorting_desc:after {
     content: "\f0dd";
     float: right;
-    font-family: fontawesome;
+    font-family: "Times New Roman";
 }
 
 table.dataTable thead .sorting:after {
     content: "\f0dc";
     float: right;
-    font-family: fontawesome;
+    font-family: "Times New Roman";
     color: rgba(50,50,50,.5);
 }
 
