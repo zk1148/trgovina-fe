@@ -98,16 +98,16 @@ if ($user["aktiven"] === '1') {
 
                         <div class="form-group">
                             <label>Elektronski naslov:</label><br>
-                            <input style="width: 46%;"
+                            <input style="width: 55%;"
                                 <?php if ($mode != "create" && isset($user["email"])) echo "value='" . $user["email"] . "'"; ?>
                                 type="email" name="email" required>
                         </div>
                         <hr>
                         <div class="form-group">
                             <label>Geslo:</label><br>
-                            <input style="width: 46%;" type="password" name="password"><br>
+                            <input style="width: 55%;" type="password" name="password"><br>
                             <label>Potrditev gesla:</label><br>
-                            <input style="width: 46%;" type="password" name="confirm">
+                            <input style="width: 55%;" type="password" name="confirm">
                         </div>
 
 
@@ -120,14 +120,14 @@ if ($user["aktiven"] === '1') {
                             echo '	<input type="hidden" name="id" value=-1>
 				                    <div class="form-group">
                                         
-                                        <input type="submit" value="Potrdi registracijo" name="submit" style="width: 22.5%; margin-left: auto; margin-right: auto;" onclick="return checkpassword()">
+                                        <input type="submit" value="Potrdi registracijo" name="submit" style="width: 55%; margin-left: auto; margin-right: auto;" onclick="return checkpassword()">
                                     </div>
 				                 ';
                         } else {
                             echo '	<input type="hidden" name="id" value=' . $id . '>
                                     <input type="hidden" value="manage" name="mode"/>
                                     <div class="form-group">
-                                        <input type="submit" value="Shrani spremembe" name="submit" style="width: 22.5%; margin-left: auto; margin-right: auto;" onclick="return checkpassword()">
+                                        <input type="submit" value="Shrani spremembe" name="submit" style="width: 55%; margin-left: auto; margin-right: auto;" onclick="return checkpassword()">
                                     </div>
                                  ';
                         }

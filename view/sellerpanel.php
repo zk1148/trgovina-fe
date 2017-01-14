@@ -183,7 +183,7 @@ if (isset($_GET["manage"])) {
                             </form>
                                 <div class="form-group">
                                     <label>Elektronski naslov:</label><br>
-                                    <input style="width: 22.5%;"
+                                    <input style="width: 26.5%;"
                                             <?php if ($mode != "create" && isset($result["email"])) echo "value='" . $result["email"] . "'"; ?>
                                             type="email" name="email" required>
                                 </div>
@@ -192,13 +192,13 @@ if (isset($_GET["manage"])) {
                                 <?php if ($mode === "edit" || $mode === "create") { ?>
                                     <div class="form-group">
                                         <label>Naslov:</label><br>
-                                        <input style="width: 22.5%;"
+                                        <input style="width: 26.5%;"
                                             <?php if ($mode != "create" && isset($result["naslov"])) echo "value='" . $result["naslov"] . "'"; ?>
                                                 type="text" name="naslov" required>
                                     </div>
                                     <div class="form-group">
                                         <label>Telefon:</label><br>
-                                        <input style="width: 22.5%;"
+                                        <input style="width: 26.5%;"
                                             <?php if ($mode != "create" && isset($result["telefon"])) echo "value='" . $result["telefon"] . "'"; ?>
                                             type="text" pattern="\d{3} \d{3} \d{3}" name="telefon" required>
                                     </div>
@@ -217,9 +217,9 @@ if (isset($_GET["manage"])) {
                             <div class="form-group">
                                 <label>Geslo:</label><br>
 
-                                <input style="width: 22.5%;" type="password" name="password"><br>
+                                <input style="width: 26.5%;" type="password" name="password"><br>
                                 <label>Potrditev gesla:</label><br>
-                                <input style="width: 22.5%;" type="password" name="confirm">
+                                <input style="width: 26.5%;" type="password" name="confirm">
                             </div>
                             <input type="hidden" name="vloga_id" value="3"/>
                             <br><br>
@@ -241,13 +241,13 @@ if (isset($_GET["manage"])) {
                             if ($mode === "create") {
                                 echo '  <input type="hidden" name="id" value=-1>
                                         <div class="form-group">
-                                            <input type="submit" value="Potrdi registracijo" name="submit" style="width: 10%; margin-left: auto; margin-right: auto;" onclick="return checkpassword()">
+                                            <input type="submit" value="Potrdi registracijo" name="submit" style="width: 26.5%; margin-left: auto; margin-right: auto;" onclick="return checkpassword()">
                                         </div>
                                      ';
                             } elseif ($mode === "urediAcc" || $mode === "edit") {
                                 echo '	<input type="hidden" name="id" value=' . $id . '>
 									    <div class="form-group">
-                                            <input type="submit" value="Shrani spremembe" name="submit" style="width: 22.5%; margin-left: auto; margin-right: auto;" onclick="return checkpassword()">
+                                            <input type="submit" value="Shrani spremembe" name="submit" style="width: 26.5%; margin-left: auto; margin-right: auto;" onclick="return checkpassword()">
                                         </div>
                                      ';
                             } ?>

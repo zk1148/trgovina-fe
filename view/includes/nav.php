@@ -2,7 +2,7 @@
 <nav class="navbar navbar-inverse" role="navigation" style="margin-bottom: 0">
     <div class="navbar-header">
         <br>
-        <a class="navbar-brand" href="#"> <font size="8">3xK</font> </a>
+        <a class="navbar-brand" href="store"> <font size="8">3xK</font> </a>
     </div>
     <!-- /.navbar-header -->
 
